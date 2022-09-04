@@ -1,3 +1,5 @@
+"use strict";
+
 const taskInput = document.querySelector("#task-text");
 const allTasks = document.querySelector(".all-tasks");
 const clearAllButton = document.querySelector(".btn");
@@ -15,10 +17,9 @@ function showToDos(filter) {
     if (allTodos) {
         allTodos.forEach((todo, id) => {
             // Check if task is completed. If yes, keep the strikethrough and
-            // check 
+            // check
             let isComplete = todo.status == "completed" ? "checked" : "";
-            if (filter === todo.status || filter === 'all')
-            {
+            if (filter === todo.status || filter === "all") {
                 li += `<li class="task">
                             <label for="${id}">
                                 <input type="checkbox" onclick="updateStatus(this)" name="${id}" id="${id}" ${isComplete}>
@@ -42,15 +43,15 @@ function showToDos(filter) {
     allTasks.innerHTML = li || `<span>You don't have any tasks here</span>`;
 }
 // Call it here so that when user comes the next time, older todo's are displayed
-showToDos('all');
+showToDos("all");
 
 // Making different filters -> completed, pending and all
 filters.forEach(btn => {
-    btn.addEventListener('click', e => {
+    btn.addEventListener("click", e => {
         document.querySelector(".active").classList.remove("active");
         btn.classList.add("active");
         showToDos(btn.id);
-    })
+    });
 });
 
 function editTask(taskID, taskName) {
@@ -68,7 +69,7 @@ function deleteTask(taskID) {
     // remove task from allTodos
     allTodos.splice(taskID, 1);
     localStorage.setItem("todoList", JSON.stringify(allTodos));
-    showToDos('all');
+    showToDos("all");
 }
 
 function showMenu(selectedTask) {
@@ -80,7 +81,7 @@ function showMenu(selectedTask) {
 
     // If screen is clicked, stop displaying the menu
     document.addEventListener("click", e => {
-        if (e.target !== selectedTask || e.target.tagName !== 'I') {
+        if (e.target !== selectedTask || e.target.tagName !== "I") {
             menuItems.classList.remove("show");
         }
     });
@@ -88,25 +89,24 @@ function showMenu(selectedTask) {
 
 function updateStatus(checkedTask) {
     let allTodos = JSON.parse(localStorage.getItem("todoList"));
-    
+
     // Selecting the paragraph which has name of todo task
     let taskName = checkedTask.parentElement.lastElementChild;
-    
+
     if (checkedTask.checked) {
         taskName.classList.add("checked");
         allTodos[checkedTask.id].status = "completed";
-    }
-    else {
+    } else {
         taskName.classList.remove("checked");
         allTodos[checkedTask.id].status = "pending";
     }
     localStorage.setItem("todoList", JSON.stringify(allTodos));
 }
 
-taskInput.addEventListener("keyup", (e) => {
+taskInput.addEventListener("keyup", e => {
     // Trim method removes whitespaces before and after entered string
     let userTask = taskInput.value.trim();
-    
+
     if (e.key === "Enter" && userTask) {
         // Initially todoList does not exist
         // The reason we need to parse is because getItem actually returns
@@ -114,35 +114,31 @@ taskInput.addEventListener("keyup", (e) => {
         let allTodos = JSON.parse(localStorage.getItem("todoList"));
 
         // If isEditedTask is false, then we need to create a new task
-        // else we need to edit it. 
-        if (!isEditedTask)
-        {
-            // if allTodos does not exist(i.e is null) then make it an empty array 
-            if (!allTodos)
-            {
+        // else we need to edit it.
+        if (!isEditedTask) {
+            // if allTodos does not exist(i.e is null) then make it an empty array
+            if (!allTodos) {
                 allTodos = [];
             }
-            let currTask = {name: userTask, status: "pending"};
+            let currTask = { name: userTask, status: "pending" };
             allTodos.push(currTask);
-        }
-        else
-        {
+        } else {
             allTodos[editID].name = userTask;
             isEditedTask = false;
         }
 
-        // After you press enter, the input area for your task will be 
+        // After you press enter, the input area for your task will be
         // cleared
         taskInput.value = "";
         localStorage.setItem("todoList", JSON.stringify(allTodos));
-        showToDos('all');
+        showToDos("all");
     }
 });
 
-clearAllButton.addEventListener('click', e => {
+clearAllButton.addEventListener("click", e => {
     // let allTodos = JSON.parse(localStorage.getItem("todoList"));
     // allTodos.splice(0, allTodos.length);
     // localStorage.setItem("todoList", JSON.stringify(allTodos));
     localStorage.clear();
-    showToDos('all');
-})
+    showToDos("all");
+});

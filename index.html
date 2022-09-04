@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimalist Todo | Your goto browser todo app</title>
-    <link rel="stylesheet" href="./CSS/styles.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <script src="./JS/main.js" defer></script>
-</head>
-<body>
-    <main>
-        <div class="container">
-            <div class="todo-box">
-                <img src="./images/bars-icon.svg" alt="bar image">
-                <input type="text" id="task-text" placeholder="Add a new task">
-                <div class="controls">
-                    <ul class="filters">
-                        <li id="all" class="active">All</li>
-                        <li id="pending">Pending</li>
-                        <li id="completed">Completed</li>
-                    </ul>
-                    <button class="btn">Clear All</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Minimalist Todo | Your goto browser todo app</title>
+        <link rel="stylesheet" href="./CSS/styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+        />
+        <script src="./JS/main.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="todo-box">
+                    <img src="./images/bars-icon.svg" alt="bar image" />
+                    <input
+                        type="text"
+                        id="task-text"
+                        placeholder="Add a new task"
+                    />
+                    <div class="controls">
+                        <ul class="filters">
+                            <li id="all" class="active">All</li>
+                            <li id="pending">Pending</li>
+                            <li id="completed">Completed</li>
+                        </ul>
+                        <button class="btn">Clear All</button>
+                    </div>
+                    <ul class="all-tasks"></ul>
                 </div>
-                <ul class="all-tasks"></ul>
             </div>
-        </div>
-    </main>
-</body>
+        </main>
+    </body>
 </html>
