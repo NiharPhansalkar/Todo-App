@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
 
 :root {
     --grad-color1: #4568dc;
     --grad-color2: #b06ab3;
-    --font-family: 'Poppins', sans-serif;
+    --font-family: "Poppins", sans-serif;
     --border-color: #bfbfbf;
 }
 
@@ -17,7 +17,11 @@
 /* Page background */
 .container {
     min-height: 100vh;
-    background-image: linear-gradient(to top right, var(--grad-color1), var(--grad-color2));
+    background-image: linear-gradient(
+        to top right,
+        var(--grad-color1),
+        var(--grad-color2)
+    );
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +66,7 @@
     align-items: center;
     border-bottom: 2px solid var(--border-color);
 }
-.controls ul{
+.controls ul {
     margin-top: -16px;
     list-style-type: none;
 }
@@ -133,7 +137,7 @@
 .task-menu li:hover {
     background: #f5f5f5;
 }
-.task-menu i span{
+.task-menu i span {
     color: rgb(101, 59, 191);
 }
 .settings .task-menu.show {
@@ -151,7 +155,11 @@
     font-size: 14px;
 }
 .controls button:hover {
-    background-image: linear-gradient(to bottom left, var(--grad-color1), var(--grad-color2))
+    background-image: linear-gradient(
+        to bottom left,
+        var(--grad-color1),
+        var(--grad-color2)
+    );
 }
 
 /* Utility classes */
@@ -160,7 +168,11 @@
     border: none;
     border-radius: 6px;
     outline: none;
-    background-image: linear-gradient(to top right, var(--grad-color1), var(--grad-color2));
+    background-image: linear-gradient(
+        to top right,
+        var(--grad-color1),
+        var(--grad-color2)
+    );
     color: white;
     cursor: pointer;
 }
