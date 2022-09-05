@@ -1,2 +1,9 @@
-Ever find yourself forgetting the things that you have to do? Too tired of downloading apps which require you to pay for services you don't even need, or bombarding you with features when all you need is a simple todo application?
-Well fret not! This todo app works right in your browser! It does not need you to download any software, and does it's job well!
+# To-Do Application
+
+Ever find yourself forgetting the things you have to do?
+
+Too tired of downloading apps which require you to pay for services you don't
+need, or bombarding you with unnecessary features?
+
+Well fret not! This is a todo app that works right in your browser! You do not
+need to download any extra software to run it!

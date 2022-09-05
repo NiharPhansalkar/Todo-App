@@ -1,3 +1,5 @@
+"use strict";
+
 const taskInput = document.querySelector("#task-text");
 const allTasks = document.querySelector(".all-tasks");
 const clearAllButton = document.querySelector(".btn");
@@ -50,7 +52,7 @@ filters.forEach(btn => {
         document.querySelector(".active").classList.remove("active");
         btn.classList.add("active");
         showToDos(btn.id);
-    })
+    });
 });
 
 function editTask(taskID, taskName) {
@@ -145,4 +147,4 @@ clearAllButton.addEventListener('click', e => {
     // localStorage.setItem("todoList", JSON.stringify(allTodos));
     localStorage.clear();
     showToDos('all');
-})
+});
